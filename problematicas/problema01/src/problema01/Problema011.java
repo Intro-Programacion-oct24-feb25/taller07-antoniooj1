@@ -20,15 +20,15 @@ public class Problema011 {
         Scanner entrada = new Scanner(System.in);
         entrada.useLocale(Locale.US);
         String cadenaReporte = "";
+        String cadenaEdad = "";
         String nombreJugador;
         String posicionCampo;
-        int edad;
+        int edad = 0;
         boolean bandera = true;
         String salir;
        
         int sumaEdades = 0;
         double sumaEstaturas = 0;
-        String cadenaEdad = "";
 
 
         int contadorIteraciones = 0;
@@ -50,31 +50,22 @@ public class Problema011 {
             contadorIteraciones = contadorIteraciones + 1; 
             sumaEdades =sumaEdades + edad;
             sumaEstaturas = sumaEstaturas + estatura;
+            cadenaEdad += edad+ "\n";
+
             
 
 
             
-            cadenaReporte = String.format("%s%d. %s - %s, %d años, %.2f metros"
-                    + "\n",
+            cadenaReporte = String.format("%s%d. %s - %s, %d anios, %.2f metros"
+                    ,
                     cadenaReporte,
                     contadorIteraciones,
                     nombreJugador,
                     posicionCampo,
                     edad,
                     estatura);
-            cadenaEdad = String.format("%sListados de edades: \n%d",
-                    edad);
-            cadenaReporte = String.format("%s%d. %s - %s, %d años, %.2f metros"
-                    + "\n%s%d"
-                    + "\n",
-                    cadenaReporte,
-                    contadorIteraciones,
-                    nombreJugador,
-                    posicionCampo,
-                    edad,
-                    estatura,
-                    cadenaEdad);
             
+         
 
                   
             entrada.nextLine();
@@ -84,9 +75,11 @@ public class Problema011 {
                 bandera = false;
             }
         }
+         cadenaReporte = String.format("%s\nLista de edades: \n%s",
+                 cadenaReporte,
+                 cadenaEdad);
 
 
-        System.out.printf("%s\n", cadenaReporte);
           if (contadorIteraciones > 0) {
             promedioEdad = (double) sumaEdades / contadorIteraciones;
             promedioEstatura = sumaEstaturas / contadorIteraciones;
