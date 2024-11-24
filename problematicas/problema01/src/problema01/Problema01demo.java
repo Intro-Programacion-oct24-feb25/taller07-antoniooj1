@@ -15,15 +15,14 @@ import java.util.Scanner;
  *
  * @author reroes
  */
-public class Problema011 {
+public class Problema01demo {
     public static void main(String[] args) {
         Scanner entrada = new Scanner(System.in);
         entrada.useLocale(Locale.US);
         String cadenaReporte = "";
-        String cadenaEdad = "";
         String nombreJugador;
         String posicionCampo;
-        int edad = 0;
+        int edad;
         boolean bandera = true;
         String salir;
        
@@ -50,14 +49,12 @@ public class Problema011 {
             contadorIteraciones = contadorIteraciones + 1; 
             sumaEdades =sumaEdades + edad;
             sumaEstaturas = sumaEstaturas + estatura;
-            cadenaEdad += edad+ "\n";
-
             
 
 
             
-            cadenaReporte = String.format("%s%d. %s - %s, %d anios, %.2f metros"
-                    ,
+            cadenaReporte = String.format("%s%d. %s - %s, %d años, %.2f metros"
+                    + "\n",
                     cadenaReporte,
                     contadorIteraciones,
                     nombreJugador,
@@ -65,7 +62,6 @@ public class Problema011 {
                     edad,
                     estatura);
             
-         
 
                   
             entrada.nextLine();
@@ -75,11 +71,9 @@ public class Problema011 {
                 bandera = false;
             }
         }
-         cadenaReporte = String.format("%s\nLista de edades: \n%s",
-                 cadenaReporte,
-                 cadenaEdad);
 
 
+        System.out.printf("%s\n", cadenaReporte);
           if (contadorIteraciones > 0) {
             promedioEdad = (double) sumaEdades / contadorIteraciones;
             promedioEstatura = sumaEstaturas / contadorIteraciones;

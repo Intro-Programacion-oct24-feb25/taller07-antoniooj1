@@ -15,14 +15,15 @@ import java.util.Scanner;
  *
  * @author reroes
  */
-public class Problema01 {
+public class Problema01Resultadofinal {
     public static void main(String[] args) {
         Scanner entrada = new Scanner(System.in);
         entrada.useLocale(Locale.US);
         String cadenaReporte = "";
+        String cadenaEdad = "";
         String nombreJugador;
         String posicionCampo;
-        int edad;
+        int edad = 0;
         boolean bandera = true;
         String salir;
        
@@ -49,12 +50,13 @@ public class Problema01 {
             contadorIteraciones = contadorIteraciones + 1; 
             sumaEdades =sumaEdades + edad;
             sumaEstaturas = sumaEstaturas + estatura;
+            cadenaEdad += edad+ "\n";
             
-
-
             
-            cadenaReporte = String.format("%s%d. %s - %s, %d años, %.2f metros"
-                    + "\n",
+            cadenaReporte = String.format("%s%d. %s -%s-, edad %d, estatura "
+                    + "%.2f "
+                    + "\n"
+                    ,
                     cadenaReporte,
                     contadorIteraciones,
                     nombreJugador,
@@ -62,7 +64,6 @@ public class Problema01 {
                     edad,
                     estatura);
             
-
                   
             entrada.nextLine();
             System.out.println("Desea salir del ciclo; digite: si");
@@ -71,26 +72,34 @@ public class Problema01 {
                 bandera = false;
             }
         }
+         cadenaReporte = String.format("%sLista de edades: \n%s",
+                 cadenaReporte,
+                 cadenaEdad);
 
 
-        System.out.printf("%s\n", cadenaReporte);
-          if (contadorIteraciones > 0) {
-            promedioEdad = (double) sumaEdades / contadorIteraciones;
+        
+            promedioEdad = sumaEdades / contadorIteraciones;
             promedioEstatura = sumaEstaturas / contadorIteraciones;
 
             cadenaReporte = String.format("%sPromedio de edades: "
-                    + "%.2f años\nPromedio de estaturas: %.2f metros\n",
+                    + "%.2f \nPromedio de estaturas: %.2f \n",
                     cadenaReporte,
                     promedioEdad,
                     promedioEstatura);
-        } else {
-            cadenaReporte = String.format("%sNo se ingresaron jugadores.\n"
-                    , cadenaReporte);
-        }
+            System.out.printf("%s\n", cadenaReporte);
 
-        System.out.printf("%s\n", cadenaReporte);
     }
 }
+
+
+       
+        
+
+
+
+
+    
+
 
     
     
